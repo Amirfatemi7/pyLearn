@@ -18,8 +18,8 @@ fac
 
 
 if operation == '+' or operation == '-' or operation == '*' or operation == '/' :
-    number_1 = int(input('Enter your first number: '))
-    number_2 = int(input('Enter your second number: '))
+    number_1 = float(input('Enter your first number: '))
+    number_2 = float(input('Enter your second number: '))
     if operation == '+':
         print('{} + {} = {}'.format(number_1, number_2,number_1 + number_2))
 
@@ -33,7 +33,7 @@ if operation == '+' or operation == '-' or operation == '*' or operation == '/' 
         print('{} / {} = {}'.format(number_1, number_2,number_1 / number_2))
 
 elif operation == "sqrt" or operation == "sin" or operation == "cos" or operation == "tan" or operation == "cot" or operation == "fac":
-    number = int(input('Enter your number: '))
+    number = float(input('Enter your number: '))
     match operation:
         case "sqrt":
             print(math.sqrt(number))
