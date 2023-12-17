@@ -8,9 +8,10 @@ with open("follower.txt","r") as f:
 
 insta = instaloader.Instaloader()
 
-userName = input("enter username: ")
-password = getpass.getpass("enter password: ")
-
+# userName = input("enter username: ")
+# password = getpass.getpass("enter password: ")
+userName = "_amir_fatemi"
+password = "359874126"
 
 insta.login(userName,password)
 print("login successfully")
@@ -28,6 +29,7 @@ for oldFollower in oldFollowers:
 
 with open("follower.txt","w") as f:
     for follower in newFollowers:
-        f.write(follower + "\n")
+        f.write(str(follower)+"\n")
+        
 
 
