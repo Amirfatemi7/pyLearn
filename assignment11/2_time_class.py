@@ -1,4 +1,3 @@
-import datetime
 
 class Time:
     def __init__(self,h,m,s):
