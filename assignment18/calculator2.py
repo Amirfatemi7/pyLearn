@@ -1,12 +1,17 @@
 from PySide6.QtWidgets import QApplication
 from PySide6.QtUiTools import QUiLoader
 import math
+from functools import partial
+
+
 
 my_app = QApplication([])
 
 loader = QUiLoader()
 
-my_window = loader.load("calculator.ui")
+my_window = loader.load("calculator2.ui")
+
+
 
 def sum():
     global a,calculate
@@ -68,28 +73,30 @@ def percent():
     a = float(my_window.lineEdit_1.text())
     result()
 
-def dot():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '.')
-def zero():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '0')
-def one():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '1')
-def two():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '2')
-def three():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '3')
-def four():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '4')
-def five():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '5')
-def six():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '6')
-def seven():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '7')
-def eight():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '8')
-def nine():
-    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '9')
+def num(x):
+    my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + x)
+# def dot():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '.')
+# def zero():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '0')
+# def one():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '1')
+# def two():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '2')
+# def three():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '3')
+# def four():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '4')
+# def five():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '5')
+# def six():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '6')
+# def seven():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '7')
+# def eight():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '8')
+# def nine():
+#     my_window.lineEdit_1.setText(my_window.lineEdit_1.text() + '9')
 
 def result():
     global calculate
@@ -135,18 +142,18 @@ my_window.btn_cot.clicked.connect(cot)
 my_window.btn_log.clicked.connect(log)
 my_window.btn_sqrt.clicked.connect(sqrt)
 my_window.btn_percent.clicked.connect(percent)
-my_window.btn_dot.clicked.connect(dot)
+my_window.btn_dot.clicked.connect(partial(num, '.'))
 my_window.btn_C.clicked.connect(clear)
-my_window.btn_0.clicked.connect(zero)
-my_window.btn_1.clicked.connect(one)
-my_window.btn_2.clicked.connect(two)
-my_window.btn_3.clicked.connect(three)
-my_window.btn_4.clicked.connect(four)
-my_window.btn_5.clicked.connect(five)
-my_window.btn_6.clicked.connect(six)
-my_window.btn_7.clicked.connect(seven)
-my_window.btn_8.clicked.connect(eight)
-my_window.btn_9.clicked.connect(nine)
+my_window.btn_0.clicked.connect(partial(num, '0'))
+my_window.btn_1.clicked.connect(partial(num, '1'))
+my_window.btn_2.clicked.connect(partial(num, '2'))
+my_window.btn_3.clicked.connect(partial(num, '3'))
+my_window.btn_4.clicked.connect(partial(num, '4'))
+my_window.btn_5.clicked.connect(partial(num, '5'))
+my_window.btn_6.clicked.connect(partial(num, '6'))
+my_window.btn_7.clicked.connect(partial(num, '7'))
+my_window.btn_8.clicked.connect(partial(num, '8'))
+my_window.btn_9.clicked.connect(partial(num, '9'))
 
 my_window.btn_cal.clicked.connect(result)
 # my_window.pushButton_1.clicked.connect(showtxt)
